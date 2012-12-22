@@ -509,7 +509,7 @@ namespace Microsoft.AspNet.SignalR.Client
 #endif
             }
 
-#if NETFX_CORE
+#if NETFX_CORE || PORTABLE
             return String.Format(CultureInfo.InvariantCulture, "{0}/{1} ({2})", client, _assemblyVersion, "Unknown OS");
 #else
             return String.Format(CultureInfo.InvariantCulture, "{0}/{1} ({2})", client, _assemblyVersion, Environment.OSVersion);

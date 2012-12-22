@@ -12,7 +12,7 @@ namespace Microsoft.AspNet.SignalR.Client.Http
         {
             _request = request;
         }
-
+#if !PORTABLE
         public string UserAgent
         {
             get
@@ -24,7 +24,7 @@ namespace Microsoft.AspNet.SignalR.Client.Http
                 _request.UserAgent = value;
             }
         }
-
+#endif
         public ICredentials Credentials
         {
             get

@@ -142,10 +142,10 @@ namespace Microsoft.AspNet.SignalR.Client.Http
         private static HttpWebRequest CreateWebRequest(string url)
         {
             HttpWebRequest request = null;
-#if WINDOWS_PHONE && !__ANDROID__
+#if WINDOWS_PHONE && !__ANDROID__ && !PORTABLE
             request = (HttpWebRequest)WebRequest.Create(url);
             request.AllowReadStreamBuffering = false;
-#elif SILVERLIGHT && !__ANDROID__
+#elif SILVERLIGHT && !__ANDROID__ && !PORTABLE
             request = (HttpWebRequest)System.Net.Browser.WebRequestCreator.ClientHttp.Create(new Uri(url));
             request.AllowReadStreamBuffering = false;
 #else

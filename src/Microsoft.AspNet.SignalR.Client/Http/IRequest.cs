@@ -9,11 +9,12 @@ namespace Microsoft.AspNet.SignalR.Client.Http
     /// </summary>
     public interface IRequest
     {
+#if !PORTABLE
         /// <summary>
         /// The user agent for this request.
         /// </summary>
         string UserAgent { get; set; }
-
+#endif
         /// <summary>
         /// The credentials for this request.
         /// </summary>
