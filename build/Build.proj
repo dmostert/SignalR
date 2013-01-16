@@ -140,6 +140,11 @@
              Targets="Build"
              Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\WindowsXaml')"
              Properties="Configuration=$(Configuration);ArtifactsDir=$(ArtifactsDir);$(ExtraProperties)" />
+    
+    <MSBuild Projects="$(ProjectRoot)\Microsoft.AspNet.SignalR.Portable.sln"
+             Targets="Build"
+             Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\WindowsXaml')"
+             Properties="Configuration=$(Configuration);ArtifactsDir=$(ArtifactsDir);$(ExtraProperties)" />
   </Target>
 
   <Target Name="RunCodeAnalysis" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v11.0\CodeAnalysis\fxcoptask.dll')">
@@ -167,6 +172,11 @@
              Properties="RunCodeAnalysis=true;Configuration=$(Configuration);" />
 
     <MSBuild Projects="$(ProjectRoot)\Microsoft.AspNet.SignalR.WinRT.sln"
+             Targets="ReBuild"
+             Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\WindowsXaml')"
+             Properties="RunCodeAnalysis=true;Configuration=$(Configuration);" />
+
+    <MSBuild Projects="$(ProjectRoot)\Microsoft.AspNet.SignalR.Portable.sln"
              Targets="ReBuild"
              Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\WindowsXaml')"
              Properties="RunCodeAnalysis=true;Configuration=$(Configuration);" />
